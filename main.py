@@ -12,7 +12,6 @@ import time
 import atexit
 from datetime import datetime, timedelta
 
-# Path setup
 _current_dir = os.path.dirname(os.path.abspath(__file__))
 if _current_dir not in sys.path:
     sys.path.insert(0, _current_dir)
@@ -203,6 +202,10 @@ def main():
     signal.signal(signal.SIGINT, _graceful_shutdown)
     signal.signal(signal.SIGTERM, _graceful_shutdown)
     atexit.register(lambda: _graceful_shutdown() if not _shutdown_event.is_set() else None)
+
+    # Create required directories (Render has no persistent disk)
+    for d in ["uploads", "logs", "temp"]:
+        os.makedirs(d, exist_ok=True)
 
     _print_banner()
     start_keep_alive()
