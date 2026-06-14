@@ -4,7 +4,7 @@ server/models/bot_setting.py — BotSetting model for per-session/per-group sett
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Any, Optional
-from server.config.database import bot_settings_col
+from config.database import bot_settings_col
 
 
 @dataclass

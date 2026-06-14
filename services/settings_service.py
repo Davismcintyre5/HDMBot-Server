@@ -3,8 +3,8 @@ server/services/settings_service.py — Per-user settings service
 """
 import logging
 from typing import Any, Optional
-from server.models.user_settings import UserSettings
-from server.config.database import get_collection
+from models.user_settings import UserSettings
+from config.database import get_collection
 
 logger = logging.getLogger(__name__)
 

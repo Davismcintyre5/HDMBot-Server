@@ -4,7 +4,7 @@ server/models/message_log.py — Message logging model (Sync PyMongo)
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Optional
-from server.config.database import messages_col
+from config.database import messages_col
 from bson import ObjectId
 
 

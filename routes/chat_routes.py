@@ -10,20 +10,20 @@ bp = Blueprint("chat", __name__, url_prefix="/api")
 
 
 def _get_service():
-    from server.services.message_service import message_service
+    from services.message_service import message_service
     return message_service
 
 def _get_client_manager():
-    from server.whatsapp.client_manager import client_manager
+    from whatsapp.client_manager import client_manager
     return client_manager
 
 def _get_settings():
-    from server.config.settings import settings
+    from config.settings import settings
     return settings
 
 def _get_default_client():
     try:
-        from server.main import _client
+        from main import _client
         return _client
     except:
         return None
@@ -83,7 +83,7 @@ def send_chat_message():
         if not client:
             return jsonify({"error": "No WhatsApp client connected"}), 503
         
-        from server.whatsapp.connection import send_text
+        from whatsapp.connection import send_text
         send_text(client, jid, text)
         
         # Log the sent message

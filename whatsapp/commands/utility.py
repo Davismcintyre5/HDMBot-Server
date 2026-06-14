@@ -4,8 +4,8 @@ poll, broadcast, pair
 """
 import time
 import re
-from server.whatsapp.handlers.command_handler import command, register_builtin
-from server.config.settings import settings
+from whatsapp.handlers.command_handler import command, register_builtin
+from config.settings import settings
 
 
 def register():

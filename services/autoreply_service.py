@@ -3,7 +3,7 @@ server/services/autoreply_service.py — Auto-reply rules CRUD service
 """
 import logging
 from typing import Optional
-from server.models.auto_reply import AutoReply
+from models.auto_reply import AutoReply
 
 logger = logging.getLogger(__name__)
 

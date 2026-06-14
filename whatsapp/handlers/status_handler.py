@@ -14,7 +14,7 @@ class StatusHandler(BaseHandler):
 
     async def should_view_status(self) -> bool:
         """Check if auto-view-status is enabled for this session."""
-        from server.models.bot_setting import BotSetting
+        from models.bot_setting import BotSetting
         return await BotSetting.get_value(self.session_id, "autoViewStatus", False)
 
     async def handle_status(self, client, status_msg):

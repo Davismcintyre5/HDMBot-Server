@@ -4,7 +4,7 @@ server/models/user.py — User model for admin/authentication
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import List, Optional
-from server.config.database import users_col
+from config.database import users_col
 
 
 @dataclass

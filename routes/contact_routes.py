@@ -9,7 +9,7 @@ bp = Blueprint("contacts", __name__, url_prefix="/api/contacts")
 
 
 def _get_service():
-    from server.services.contact_service import contact_service
+    from services.contact_service import contact_service
     return contact_service
 
 

@@ -4,7 +4,7 @@ server/services/hdm_service.py — HDM Bridge email integration
 import logging
 import requests
 from typing import Optional
-from server.config.settings import settings
+from config.settings import settings
 
 logger = logging.getLogger(__name__)
 

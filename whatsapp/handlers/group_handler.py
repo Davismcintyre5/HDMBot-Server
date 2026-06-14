@@ -15,7 +15,7 @@ class GroupHandler(BaseHandler):
     async def handle_join(self, client, chat_id: str, new_members: list):
         """Send welcome message when members join."""
         try:
-            from server.models.bot_setting import BotSetting
+            from models.bot_setting import BotSetting
             enabled = await BotSetting.get_value(chat_id, "welcomeEnabled", False)
             if not enabled:
                 return
@@ -39,7 +39,7 @@ class GroupHandler(BaseHandler):
     async def handle_leave(self, client, chat_id: str, leaver_id: str):
         """Send goodbye message when a member leaves."""
         try:
-            from server.models.bot_setting import BotSetting
+            from models.bot_setting import BotSetting
             enabled = await BotSetting.get_value(chat_id, "goodbyeEnabled", False)
             if not enabled:
                 return

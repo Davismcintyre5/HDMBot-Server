@@ -3,7 +3,7 @@ server/whatsapp/commands/fun.py — Fun commands
 joke, quote
 """
 import requests
-from server.whatsapp.handlers.command_handler import command, register_builtin
+from whatsapp.handlers.command_handler import command, register_builtin
 
 
 def register():

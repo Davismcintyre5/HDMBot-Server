@@ -2,7 +2,7 @@
 server/controllers/broadcast_controller.py — Broadcast CRUD endpoints
 """
 from flask import Blueprint, request, jsonify
-from server.services.broadcast_service import broadcast_service
+from services.broadcast_service import broadcast_service
 
 bp = Blueprint("broadcasts", __name__, url_prefix="/api/broadcasts")
 

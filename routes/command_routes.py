@@ -9,7 +9,7 @@ bp = Blueprint("commands_api", __name__, url_prefix="/api/commands")
 
 
 def _get_service():
-    from server.services.command_service import command_service
+    from services.command_service import command_service
     return command_service
 
 

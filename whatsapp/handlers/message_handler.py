@@ -53,7 +53,7 @@ class MessageHandler(BaseHandler):
             chat_str = str(chat_jid)
 
         # Log message
-        from server.whatsapp.connection import print_msg
+        from whatsapp.connection import print_msg
         print_msg("out" if is_from_me else "in", sender_str, chat_str, body or "[media/no text]")
 
         if not body:

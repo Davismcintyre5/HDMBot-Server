@@ -3,10 +3,10 @@ server/whatsapp/commands/general.py — General commands
 menu, help, ping, info, status, getid, rules
 """
 import time
-from server.whatsapp.handlers.command_registry import _commands_cache
-from server.whatsapp.handlers.command_handler import command, register_builtin
-from server.config.settings import settings
-from server.utils.helpers import create_progress_bar
+from whatsapp.handlers.command_registry import _commands_cache
+from whatsapp.handlers.command_handler import command, register_builtin
+from config.settings import settings
+from utils.helpers import create_progress_bar
 
 
 def register():
@@ -162,7 +162,7 @@ async def cmd_getid(client, jid, args, sender_jid, sender_num, session_id, handl
 @command("rules")
 async def cmd_rules(client, jid, args, sender_jid, sender_num, session_id, handler, msg, **kwargs):
     try:
-        from server.models.auto_reply import AutoReply
+        from models.auto_reply import AutoReply
         rules = await AutoReply.find_all_enabled(session_id)
         if rules:
             text = f"📜 *Active Rules:*\n" + "\n".join(f"{i+1}. {r.name}" for i, r in enumerate(rules[:10]))

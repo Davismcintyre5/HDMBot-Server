@@ -3,7 +3,7 @@ server/services/contact_service.py — Contact CRUD service
 """
 import logging
 from typing import Optional
-from server.models.contact import Contact
+from models.contact import Contact
 
 logger = logging.getLogger(__name__)
 

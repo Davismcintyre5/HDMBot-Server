@@ -248,7 +248,7 @@ def admin_delete():
 
 def sessions_list():
     print_header("📱 WhatsApp Sessions")
-    from server.whatsapp.client_manager import client_manager
+    from whatsapp.client_manager import client_manager
     sessions = client_manager.list_sessions()
     if not sessions:
         console.print("[yellow]No sessions.[/yellow]")
@@ -266,7 +266,7 @@ def sessions_list():
 
 def session_create():
     print_header("➕ Create Session")
-    from server.whatsapp.client_manager import client_manager
+    from whatsapp.client_manager import client_manager
     sid = Prompt.ask("Session ID", default="session_2")
     phone = Prompt.ask("Phone", default="")
     name = Prompt.ask("Name", default=sid)
@@ -283,7 +283,7 @@ def session_create():
 
 
 def session_manage():
-    from server.whatsapp.client_manager import client_manager
+    from whatsapp.client_manager import client_manager
     sessions = client_manager.active_sessions
     if not sessions:
         console.print("[yellow]No sessions.[/yellow]")
@@ -308,7 +308,7 @@ def session_manage():
 
 
 def session_delete():
-    from server.whatsapp.client_manager import client_manager
+    from whatsapp.client_manager import client_manager
     sessions = client_manager.active_sessions
     if not sessions:
         console.print("[yellow]No sessions.[/yellow]")
@@ -331,7 +331,7 @@ def session_delete():
 
 def commands_list():
     print_header("📋 Commands")
-    from server.whatsapp.connection import _COMMANDS, get_prefix
+    from whatsapp.connection import _COMMANDS, get_prefix
     table = Table(box=box.ROUNDED)
     table.add_column("#", style="dim")
     table.add_column("Command", style="cyan")
@@ -344,7 +344,7 @@ def commands_list():
 
 def commands_add():
     print_header("➕ Add Command")
-    from server.whatsapp.connection import _COMMANDS, get_prefix, send_text
+    from whatsapp.connection import _COMMANDS, get_prefix, send_text
     name = Prompt.ask("Command name")
     response = Prompt.ask("Response")
     if name and response:
@@ -357,7 +357,7 @@ def commands_add():
 
 def commands_remove():
     print_header("➖ Remove Command")
-    from server.whatsapp.connection import _COMMANDS
+    from whatsapp.connection import _COMMANDS
     names = sorted(_COMMANDS.keys())
     for i, n in enumerate(names, 1):
         console.print(f"  [bold cyan]{i}.[/bold cyan] {n}")
@@ -376,7 +376,7 @@ def commands_remove():
 
 def settings_view():
     print_header("⚙️ Settings")
-    from server.whatsapp.connection import get_prefix
+    from whatsapp.connection import get_prefix
     table = Table(box=box.ROUNDED)
     table.add_column("Setting", style="cyan")
     table.add_column("Value", style="green")
@@ -390,7 +390,7 @@ def settings_view():
 
 def settings_edit():
     print_header("✏️ Edit")
-    from server.whatsapp.connection import get_prefix, set_prefix
+    from whatsapp.connection import get_prefix, set_prefix
     console.print("1. Prefix\n2. Owner\n3. Add Admin\n4. Remove Admin\n5. Toggle AI\n6. Toggle Bug\n")
     try:
         c = IntPrompt.ask("Select", default=0)
@@ -477,10 +477,10 @@ def db_drop_all():
 def main_menu():
     while True:
         print_header("🚀 HDM BOT Admin")
-        from server.whatsapp.client_manager import client_manager
+        from whatsapp.client_manager import client_manager
         sessions = client_manager.list_sessions()
         connected = sum(1 for s in sessions if s["status"] == "connected")
-        from server.whatsapp.connection import _COMMANDS
+        from whatsapp.connection import _COMMANDS
         console.print(f"  [dim]Sessions: {len(sessions)} ({connected} connected) | Commands: {len(_COMMANDS)}[/dim]")
         console.print()
         console.print("  [bold cyan]1.[/bold cyan] 👑 Admin Users (List/Create/Manage/Delete)")

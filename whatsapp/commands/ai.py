@@ -2,9 +2,9 @@
 server/whatsapp/commands/ai.py — AI commands
 deepseek, gemini, chatgpt, ai
 """
-from server.whatsapp.handlers.command_handler import command, register_builtin
-from server.config.settings import settings
-from server.services.ai_service import ai_service
+from whatsapp.handlers.command_handler import command, register_builtin
+from config.settings import settings
+from services.ai_service import ai_service
 
 
 def register():

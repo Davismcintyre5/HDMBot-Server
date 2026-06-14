@@ -2,9 +2,9 @@
 server/controllers/dashboard_controller.py — Dashboard overview endpoint
 """
 from flask import Blueprint, request, jsonify
-from server.services.message_service import message_service
-from server.services.broadcast_service import broadcast_service
-from server.services.session_service import session_service
+from services.message_service import message_service
+from services.broadcast_service import broadcast_service
+from services.session_service import session_service
 
 bp = Blueprint("dashboard", __name__, url_prefix="/api/dashboard")
 

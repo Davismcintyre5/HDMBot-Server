@@ -4,7 +4,7 @@ server/models/broadcast.py — Broadcast messages model (Sync PyMongo)
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import List, Optional
-from server.config.database import broadcasts_col
+from config.database import broadcasts_col
 from bson import ObjectId
 
 

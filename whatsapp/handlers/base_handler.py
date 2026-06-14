@@ -9,9 +9,9 @@ import time
 from datetime import datetime
 from typing import Any, Dict, Optional
 
-from server.config.settings import settings
-from server.utils.helpers import get_user_number, sanitize_text, format_number
-from server.whatsapp.connection import send_text, get_text, jid_to_str, print_msg
+from config.settings import settings
+from utils.helpers import get_user_number, sanitize_text, format_number
+from whatsapp.connection import send_text, get_text, jid_to_str, print_msg
 
 
 class BaseHandler:
@@ -104,7 +104,7 @@ class BaseHandler:
             return cached["value"]
 
         try:
-            from server.models.bot_setting import BotSetting
+            from models.bot_setting import BotSetting
             value = await BotSetting.get_value(self.session_id, key)
             if value is None:
                 value = settings.DEFAULT_SETTINGS.get(key, default)
@@ -116,7 +116,7 @@ class BaseHandler:
 
     async def set_session_setting(self, key: str, value: Any) -> bool:
         try:
-            from server.models.bot_setting import BotSetting
+            from models.bot_setting import BotSetting
             ok = await BotSetting.upsert(self.session_id, key, value)
             if ok:
                 cache_key = f"{self.session_id}:{key}"
@@ -132,7 +132,7 @@ class BaseHandler:
             return cached["value"]
 
         try:
-            from server.models.bot_setting import BotSetting
+            from models.bot_setting import BotSetting
             value = await BotSetting.get_value(group_id, key, default)
         except Exception:
             value = default
@@ -142,7 +142,7 @@ class BaseHandler:
 
     async def set_group_setting(self, group_id: str, key: str, value: Any) -> bool:
         try:
-            from server.models.bot_setting import BotSetting
+            from models.bot_setting import BotSetting
             ok = await BotSetting.upsert(group_id, key, value)
             if ok:
                 cache_key = f"{group_id}:{key}"

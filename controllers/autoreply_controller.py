@@ -2,7 +2,7 @@
 server/controllers/autoreply_controller.py — Auto-reply CRUD endpoints
 """
 from flask import Blueprint, request, jsonify
-from server.services.autoreply_service import autoreply_service
+from services.autoreply_service import autoreply_service
 
 bp = Blueprint("autoreplies", __name__, url_prefix="/api/autoreplies")
 

@@ -199,7 +199,7 @@ class ClientManager:
             server_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
             if server_dir not in sys.path:
                 sys.path.insert(0, server_dir)
-            from server.services.session_service import session_service
+            from services.session_service import session_service
             session_service.update_qr(session_id, qr_string)
         except Exception as e:
             console.print(f"[red]Failed to save QR: {e}[/red]")

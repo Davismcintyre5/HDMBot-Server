@@ -9,13 +9,13 @@ bp = Blueprint("settings", __name__, url_prefix="/api/settings")
 
 
 def _get_service():
-    from server.services.settings_service import settings_service
+    from services.settings_service import settings_service
     return settings_service
 
 def _get_default_user():
     """Get default user number from env."""
     import os
-    from server.config.settings import settings
+    from config.settings import settings
     return settings.PAIRING_PHONE or settings.OWNER_NUMBER or ""
 
 

@@ -5,8 +5,8 @@ import os
 import logging
 from typing import Optional
 from datetime import datetime
-from server.models.session import Session
-from server.config.settings import settings
+from models.session import Session
+from config.settings import settings
 
 logger = logging.getLogger(__name__)
 

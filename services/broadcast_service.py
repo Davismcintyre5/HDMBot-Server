@@ -3,7 +3,7 @@ server/services/broadcast_service.py — Broadcast CRUD service
 """
 import logging
 from typing import Optional
-from server.models.broadcast import Broadcast
+from models.broadcast import Broadcast
 
 logger = logging.getLogger(__name__)
 

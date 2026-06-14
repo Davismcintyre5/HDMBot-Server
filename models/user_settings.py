@@ -5,7 +5,7 @@ All settings stored per WhatsApp user number.
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Any, Optional
-from server.config.database import get_collection
+from config.database import get_collection
 from bson import ObjectId
 
 

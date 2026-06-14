@@ -3,8 +3,8 @@ server/services/setting_service.py — Bot settings management
 """
 import logging
 from typing import Any, Optional
-from server.models.bot_setting import BotSetting
-from server.config.settings import settings as app_settings
+from models.bot_setting import BotSetting
+from config.settings import settings as app_settings
 
 logger = logging.getLogger(__name__)
 
@@ -22,7 +22,7 @@ class SettingService:
 
     @staticmethod
     async def get_all(session_id: str) -> dict:
-        from server.config.database import bot_settings_col
+        from config.database import bot_settings_col
         cursor = bot_settings_col().find({"session_id": session_id})
         settings = {}
         async for doc in cursor:

@@ -3,7 +3,7 @@ server/services/command_service.py — Command CRUD service
 """
 import logging
 from typing import Optional
-from server.models.command import Command
+from models.command import Command
 
 logger = logging.getLogger(__name__)
 

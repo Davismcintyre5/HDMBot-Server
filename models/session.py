@@ -4,7 +4,7 @@ server/models/session.py — WhatsApp session model (Sync PyMongo)
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Optional
-from server.config.database import sessions_col
+from config.database import sessions_col
 from bson import ObjectId
 
 

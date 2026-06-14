@@ -4,7 +4,7 @@ server/models/auto_reply.py — Auto-reply rules model (Sync PyMongo)
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import List, Optional
-from server.config.database import autoreplies_col
+from config.database import autoreplies_col
 from bson import ObjectId
 
 

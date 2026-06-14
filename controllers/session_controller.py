@@ -2,7 +2,7 @@
 server/controllers/session_controller.py — Session management endpoints
 """
 from flask import Blueprint, request, jsonify
-from server.services.session_service import session_service
+from services.session_service import session_service
 
 bp = Blueprint("sessions", __name__, url_prefix="/api/sessions")
 

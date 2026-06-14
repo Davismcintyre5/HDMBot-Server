@@ -11,7 +11,7 @@ from rich.console import Console
 
 from .base_handler import BaseHandler
 from .command_registry import _COMMANDS, _BUILTIN_COMMANDS, _commands_cache, _last_commands_load
-from server.config.settings import settings
+from config.settings import settings
 
 console = Console()
 
@@ -49,7 +49,7 @@ class CommandHandler(BaseHandler):
         _commands_cache.clear()
 
         try:
-            from server.models.command import Command
+            from models.command import Command
             db_commands = await Command.find_all_enabled(self.session_id)
             for cmd in db_commands:
                 data = {
@@ -150,7 +150,7 @@ class CommandHandler(BaseHandler):
 
     async def _execute_dynamic(self, client, jid, cmd_name: str, cmd_data: dict) -> bool:
         try:
-            from server.models.command import Command
+            from models.command import Command
             if cmd_data.get("_id"):
                 await Command.increment_usage(cmd_data["_id"])
             await self.send_reply(client, jid, cmd_data["response"])

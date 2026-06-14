@@ -4,7 +4,7 @@ server/models/contact.py — Saved contacts model (Sync PyMongo)
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Optional
-from server.config.database import get_collection
+from config.database import get_collection
 from bson import ObjectId
 
 CONTACTS = "contacts"

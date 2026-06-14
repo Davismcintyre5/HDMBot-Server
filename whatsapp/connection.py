@@ -203,13 +203,13 @@ def _is_user_allowed_bug(jid) -> bool:
 
 def _get_user_setting(user_number: str, key: str, default=None):
     try:
-        from server.services.settings_service import settings_service
+        from services.settings_service import settings_service
         return settings_service.get_setting(user_number, key, default)
     except: return default
 
 def _set_user_setting(user_number: str, key: str, value) -> bool:
     try:
-        from server.services.settings_service import settings_service
+        from services.settings_service import settings_service
         return settings_service.set_setting(user_number, key, value)
     except: return False
 
@@ -221,7 +221,7 @@ def _check_auto_reply(user_number: str, body: str) -> str | None:
     enabled = _get_user_setting(user_number, "auto_reply", False)
     if not enabled: return None
     try:
-        from server.models.auto_reply import AutoReply
+        from models.auto_reply import AutoReply
         rules = AutoReply.find_all("global")
         body_lower = body.lower()
         for rule in rules:
@@ -1114,7 +1114,7 @@ def handle_message(client: NewClient, msg: MessageEv):
     try:
         session_id = getattr(client, '_hdm_session_id', None)
         if session_id:
-            from server.services.session_service import session_service
+            from services.session_service import session_service
             session = session_service.get(session_id)
             if session and session.get("phone_number"): phone_num = session["phone_number"]
     except: pass
@@ -1126,7 +1126,7 @@ def handle_message(client: NewClient, msg: MessageEv):
 
     if body:
         try:
-            from server.services.message_service import message_service
+            from services.message_service import message_service
             sid = getattr(client, '_hdm_session_id', 'default')
             message_service.log_message(session_id=sid, from_jid=sender_str, chat_jid=chat_str, body=body, direction="out" if is_from_me else "in")
         except: pass
@@ -1182,7 +1182,7 @@ def handle_message(client: NewClient, msg: MessageEv):
             try:
                 handler(client=client, jid=chat_jid, args=args, sender_jid=sender_jid, sender_num=phone_num, msg=msg)
                 try:
-                    from server.services.message_service import message_service
+                    from services.message_service import message_service
                     sid = getattr(client, '_hdm_session_id', 'default')
                     message_service.log_message(session_id=sid, from_jid=sender_str, chat_jid=chat_str, body=body, direction="out" if is_from_me else "in", is_command=True, command_name=cmd_name)
                 except: pass
@@ -1199,7 +1199,7 @@ def handle_message(client: NewClient, msg: MessageEv):
             send_text(client, chat_jid, reply)
             print_msg("out", "BOT", chat_str, reply)
             try:
-                from server.services.message_service import message_service
+                from services.message_service import message_service
                 sid = getattr(client, '_hdm_session_id', 'default')
                 message_service.log_message(session_id=sid, from_jid="BOT", chat_jid=chat_str, body=reply, direction="out")
             except: pass

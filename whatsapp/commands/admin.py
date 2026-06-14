@@ -2,8 +2,8 @@
 server/whatsapp/commands/admin.py — Admin management commands
 addbotadmin, listbotadmins, removebotadmin, addsudo, setsudo, ownerinfo
 """
-from server.whatsapp.handlers.command_handler import command, register_builtin
-from server.config.settings import settings
+from whatsapp.handlers.command_handler import command, register_builtin
+from config.settings import settings
 
 
 def register():

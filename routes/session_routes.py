@@ -10,15 +10,15 @@ bp = Blueprint("sessions", __name__, url_prefix="/api/sessions")
 
 
 def _get_session_service():
-    from server.services.session_service import session_service
+    from services.session_service import session_service
     return session_service
 
 def _get_client_manager():
-    from server.whatsapp.client_manager import client_manager
+    from whatsapp.client_manager import client_manager
     return client_manager
 
 def _get_socketio():
-    from server.main import socketio
+    from main import socketio
     return socketio
 
 

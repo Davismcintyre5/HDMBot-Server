@@ -3,7 +3,7 @@ server/services/message_service.py — Message log service
 """
 import time
 import logging
-from server.models.message_log import MessageLog
+from models.message_log import MessageLog
 
 logger = logging.getLogger(__name__)
 

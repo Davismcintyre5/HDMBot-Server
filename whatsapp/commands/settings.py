@@ -2,9 +2,9 @@
 server/whatsapp/commands/settings.py — Settings commands
 setprefix, setfooter, mode, alwaysonline, autoviewstatus, reload, listadmins, antidelete
 """
-from server.whatsapp.handlers.command_registry import _commands_cache, _last_commands_load
-from server.whatsapp.handlers.command_handler import command, register_builtin
-from server.config.settings import settings
+from whatsapp.handlers.command_registry import _commands_cache, _last_commands_load
+from whatsapp.handlers.command_handler import command, register_builtin
+from config.settings import settings
 
 
 def register():

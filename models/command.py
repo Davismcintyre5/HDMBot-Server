@@ -4,7 +4,7 @@ server/models/command.py — Dynamic Command model (Sync PyMongo)
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import List, Optional
-from server.config.database import commands_col
+from config.database import commands_col
 from bson import ObjectId
 
 

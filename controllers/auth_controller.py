@@ -29,7 +29,7 @@ def init_auth(secret: str, expire: str = "7d"):
 
 def _get_db():
     """Lazy MongoDB connection."""
-    from server.config.database import get_db as db_get
+    from config.database import get_db as db_get
     return db_get()
 
 

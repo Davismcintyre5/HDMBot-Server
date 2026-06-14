@@ -9,7 +9,7 @@ bp = Blueprint("broadcasts", __name__, url_prefix="/api/broadcasts")
 
 
 def _get_service():
-    from server.services.broadcast_service import broadcast_service
+    from services.broadcast_service import broadcast_service
     return broadcast_service
 
 

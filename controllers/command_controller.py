@@ -2,7 +2,7 @@
 server/controllers/command_controller.py — Command CRUD endpoints
 """
 from flask import Blueprint, request, jsonify
-from server.services.command_service import command_service
+from services.command_service import command_service
 
 bp = Blueprint("commands", __name__, url_prefix="/api/commands")
 

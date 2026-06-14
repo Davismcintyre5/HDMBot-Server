@@ -4,7 +4,7 @@ server/services/ai_service.py — AI provider integrations (DeepSeek, Gemini, Ch
 import logging
 import requests
 from typing import Optional
-from server.config.settings import settings
+from config.settings import settings
 
 logger = logging.getLogger(__name__)
 

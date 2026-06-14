@@ -9,7 +9,7 @@ bp = Blueprint("autoreplies", __name__, url_prefix="/api/autoreplies")
 
 
 def _get_service():
-    from server.services.autoreply_service import autoreply_service
+    from services.autoreply_service import autoreply_service
     return autoreply_service
 
 

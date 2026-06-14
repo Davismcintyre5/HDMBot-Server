@@ -2,7 +2,7 @@
 server/controllers/contact_controller.py — Contact CRUD endpoints
 """
 from flask import Blueprint, request, jsonify
-from server.services.contact_service import contact_service
+from services.contact_service import contact_service
 
 bp = Blueprint("contacts", __name__, url_prefix="/api/contacts")
 

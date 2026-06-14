@@ -5,7 +5,7 @@ import os
 import logging
 import logging.handlers
 from datetime import datetime
-from server.config.settings import settings
+from config.settings import settings
 
 
 def setup_logger(name: str = "hdm_bot") -> logging.Logger:

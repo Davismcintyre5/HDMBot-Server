@@ -23,7 +23,7 @@ class AutoReplyHandler(BaseHandler):
         Returns True if a rule matched and replied.
         """
         try:
-            from server.models.auto_reply import AutoReply
+            from models.auto_reply import AutoReply
             rules = await AutoReply.find_all_enabled(self.session_id)
         except Exception:
             return False

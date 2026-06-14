@@ -2,7 +2,7 @@
 server/controllers/setting_controller.py — Settings endpoints
 """
 from flask import Blueprint, request, jsonify
-from server.services.setting_service import setting_service
+from services.setting_service import setting_service
 
 bp = Blueprint("settings", __name__, url_prefix="/api/settings")
 

@@ -2,7 +2,7 @@
 server/controllers/message_controller.py — Message log endpoints
 """
 from flask import Blueprint, request, jsonify
-from server.services.message_service import message_service
+from services.message_service import message_service
 
 bp = Blueprint("messages", __name__, url_prefix="/api/messages")
 

@@ -6,8 +6,8 @@ import hashlib
 import secrets
 from datetime import datetime, timedelta
 from typing import Optional
-from server.models.user import User
-from server.config.settings import settings
+from models.user import User
+from config.settings import settings
 
 logger = logging.getLogger(__name__)
 
@@ -77,7 +77,7 @@ class AuthService:
     @staticmethod
     async def get_user_by_id(user_id: str) -> Optional[dict]:
         from bson import ObjectId
-        from server.config.database import users_col
+        from config.database import users_col
         doc = await users_col().find_one({"_id": ObjectId(user_id)})
         return User.from_dict(doc).to_dict() if doc else None
 

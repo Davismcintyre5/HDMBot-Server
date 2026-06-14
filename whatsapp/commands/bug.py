@@ -5,9 +5,9 @@ bugmenu, bug, stopbug, addbuguser, listbugusers, removebuguser, antibug, buglogs
 import time
 import threading
 from datetime import datetime
-from server.whatsapp.handlers.command_handler import command, register_builtin
-from server.config.settings import settings
-from server.utils.helpers import create_progress_bar
+from whatsapp.handlers.command_handler import command, register_builtin
+from config.settings import settings
+from utils.helpers import create_progress_bar
 
 
 def register():
