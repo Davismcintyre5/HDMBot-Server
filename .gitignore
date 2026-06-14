@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+
+# Virtual Environment
+venv/
+env/
+
+# Environment variables
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+logs/
+*.log
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# WhatsApp Sessions
+whatsapp/sessions/
+
+# Uploads & Temp
+uploads/
+temp/
+
+# OS
+.DS_Store
+Thumbs.db

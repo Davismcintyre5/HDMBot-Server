@@ -1,0 +1,12 @@
+neonize
+flask
+flask-cors
+flask-socketio
+pymongo
+pyjwt
+python-dotenv
+rich
+requests
+Pillow
+waitress
+simple-websocket
