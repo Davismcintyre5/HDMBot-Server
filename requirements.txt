@@ -3,6 +3,7 @@ flask
 flask-cors
 flask-socketio
 pymongo
+dnspython
 pyjwt
 python-dotenv
 rich
@@ -10,3 +11,6 @@ requests
 Pillow
 waitress
 simple-websocket
+pyqrcode
+pypng
+python-magic-bin
