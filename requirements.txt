@@ -13,4 +13,3 @@ waitress
 simple-websocket
 pyqrcode
 pypng
-python-magic-bin
