@@ -13,3 +13,5 @@ waitress
 simple-websocket
 pyqrcode
 pypng
+eventlet
+gunicorn

@@ -1,6 +1,6 @@
 """
 main.py — HDM BOT  |  Production Entry Point
-Render-compatible: all files at root level
+PXXL-compatible with Gunicorn + eventlet WebSocket support
 """
 from __future__ import annotations
 
@@ -49,7 +49,7 @@ from keep_alive import start_keep_alive
 console = Console()
 app = Flask(__name__)
 CORS(app, origins="*")
-socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading')
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode='eventlet')
 
 init_auth(os.getenv("JWT_SECRET", "hdm_bot_secret_change_this"), os.getenv("JWT_EXPIRE", "7d"))
 
@@ -203,8 +203,7 @@ def main():
     signal.signal(signal.SIGTERM, _graceful_shutdown)
     atexit.register(lambda: _graceful_shutdown() if not _shutdown_event.is_set() else None)
 
-    # Create required directories (Render has no persistent disk)
-    for d in ["uploads", "logs", "temp"]:
+    for d in ["uploads", "logs", "temp", "whatsapp/sessions"]:
         os.makedirs(d, exist_ok=True)
 
     _print_banner()
@@ -254,3 +253,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# For Gunicorn + eventlet WebSocket support
+application = app
